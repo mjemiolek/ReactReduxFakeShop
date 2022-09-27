@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import MiniCart from "./MiniCart";
 
 const Header = () => {
     return (
@@ -8,6 +9,9 @@ const Header = () => {
                 <Link to={`/`}>
                     <h2>FakeShop</h2>
                 </Link>
+                <div className="right menu">
+                    <MiniCart />
+                </div>
             </div>
         </div>
     )

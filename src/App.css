@@ -4,17 +4,26 @@
   margin: 0;
 }
 
-.ui.cards>.card>.image {
+
+.ui.cards>.card>.content>.header {
+  height: 48px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.ui.cards>.card>.linkacz>.image {
   height: 250px;
   padding: 20px;
   background: #fff;
   margin: auto;
 }
 
-.ui.cards>.card>.image>img {
+.ui.cards>.card>.linkacz>.image>img {
   height: 100%;
   max-width: 100%;
   width: auto;
+  display: block;
+  margin: auto;
 }
 
 .ui.cards>.card>.content>.header {
@@ -99,4 +108,10 @@
   color: #fff;
   font-size: 18px;
   margin-left: 0;
+}
+
+.image:hover {
+  -webkit-box-shadow: inset 0px 0px 20px -10px rgba(4, 12, 169, 1);
+  -moz-box-shadow: inset 0px 0px 20px -10px rgba(4, 12, 169, 1);
+  box-shadow: inset 0px 0px 20px -10px rgba(4, 12, 169, 1);
 }
