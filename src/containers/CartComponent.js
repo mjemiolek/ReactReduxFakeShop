@@ -1,35 +1,33 @@
 import React, { useEffect, useState } from "react";
-import Header from "./Header";
 import { connect, useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   addToCart,
   removeOneFromCart,
   removeFromCart,
 } from "../redux/actions/productActions";
+import Header from "./Header";
 
 const CartComponent = () => {
   const cart = useSelector((state) => state.allProducts.cart);
-  const [n, setN] = useState(0);
-  const [p, setP] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (cart.length !== 0) {
-      setN(cart.map((item) => item.qty).reduce((prev, next) => prev + next));
-      setP(
+      setTotalPrice(
         cart
           .map((item) => item.qty * item.price)
           .reduce((prev, next) => prev + next)
       );
     } else {
-      setN(0);
-      setP(0);
+      setTotalPrice(0);
     }
   }); // Only re-run the effect if count changes
 
   return (
     <>
-      <Header />
+      <Header cartClass={false} />
       <div className="ui container grid">
         <div className="row">
           <div className="ten wide column">
@@ -91,12 +89,14 @@ const CartComponent = () => {
           <div className="six wide column">
             <div className="myBigBoxClass">
               <div className="nicePrice center">
-                Total Price: {Number(p.toFixed(2))} $
+                Total Price: {Number(totalPrice.toFixed(2))} $
               </div>
               <div className="center">
+              <Link to={`/payment`}>
                 <button className="ui positive button">
                   Proceed to checkout
                 </button>
+              </Link>
               </div>
             </div>
           </div>

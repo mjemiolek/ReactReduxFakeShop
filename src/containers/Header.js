@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import MiniCart from "./MiniCart";
 
-const Header = () => {
+const Header = (props) => {
     return (
         <div className="ui fixed menu">
             <div className="ui container center">
@@ -10,7 +10,7 @@ const Header = () => {
                     <h2>FakeShop</h2>
                 </Link>
                 <div className="right menu">
-                    <MiniCart />
+                    <MiniCart cartClass={props.cartClass} />
                 </div>
             </div>
         </div>

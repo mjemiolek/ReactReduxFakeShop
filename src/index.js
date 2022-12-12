@@ -12,3 +12,7 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
+
+setTimeout(function(){
+  document.body.className="";
+},500);

@@ -1,10 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect, useDispatch, useSelector } from "react-redux";
-import {
-  addToCart,
-} from "../redux/actions/productActions";
-
+import { addToCart } from "../redux/actions/productActions";
+import Header from "./Header";
 
 const ProductComponent = () => {
   const products = useSelector((state) => state.allProducts.products);
@@ -24,7 +22,11 @@ const ProductComponent = () => {
               <div className="header">{title}</div>
               <div className="meta price">$ {price}</div>
               <div className="meta">{category}</div>
-              <div onClick={() => dispatch(addToCart(id))} className="ui vertical animated button fluid" tabIndex="0">
+              <div
+                onClick={() => dispatch(addToCart(id))}
+                className="ui vertical animated button fluid"
+                tabIndex="0"
+              >
                 <div className="hidden content">
                   <i className="shop icon"></i>
                 </div>
@@ -37,14 +39,18 @@ const ProductComponent = () => {
     );
   });
 
-  return <>{renderList}</>;
+  return (
+    <>
+      <Header />
+      {renderList}
+    </>
+  );
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-      addToCart: (id) => dispatch(addToCart(id)),
-    };
+  return {
+    addToCart: (id) => dispatch(addToCart(id)),
   };
-
+};
 
 export default connect(null, mapDispatchToProps)(ProductComponent);
