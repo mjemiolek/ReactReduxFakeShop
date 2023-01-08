@@ -17,4 +17,4 @@ You add your Stripe keys in:  <br />
 src>StripeContainter.js>PUBLIC_KEY  <br />
 server>.env>STRIPE_SECRET_TEST  <br />
 
-# Previous deploy: https://michushop.netlify.app/
+# Deploy without stripe: https://michushop.netlify.app/
